@@ -22,6 +22,7 @@ def readFile(name):
         lines = f.readlines()
     for line in lines:
         text_lines.append(line.strip())
+    #print(text_lines)
     return text_lines
 
 def userToDicc(line):
@@ -39,7 +40,7 @@ def userToDicc(line):
     key=userLine[0]
     listSchedule = userLine[1].split(",")
     value = scheduleToDicc(listSchedule)
-    print(key,value)
+    #print(key,value)
     return key,value
 
 def scheduleToDicc(schedule):
@@ -58,7 +59,7 @@ def scheduleToDicc(schedule):
         value = s[2:]
         value=tuple(value.split("-"))
         dicc[key]=value
-    print(dicc)
+    #print(dicc)
     return dicc
 
 def fileToDicc(name):
@@ -75,7 +76,7 @@ def fileToDicc(name):
     for line in lines:
         key,value = userToDicc(line)
         dicc[key] = value
-    print(dicc)
+    #print(dicc)
     return dicc
 
 def compareUsers(dicc):
@@ -97,7 +98,7 @@ def compareUsers(dicc):
             times = compareDicc(dicc1,dicc2)
             if times>0:
                 comparation.append((key_list[i],key_list[j],str(times)))
-    print(comparation)
+    #print(comparation)
     return comparation
 
 def compareHours(hours1,hours2):
@@ -149,7 +150,7 @@ def compareDicc(dicc1,dicc2):
         if key in dicc2:
             if compareHours(dicc1[key],dicc2[key]):
                 c+=1
-    print(c)
+    #print(c)
     return c
 
 def formatResults(results):
@@ -182,4 +183,4 @@ def runProgram(name):
     results = compareUsers(employees_dicc)
     formatResults(results)
 
-runProgram("file2")
+runProgram("file")
